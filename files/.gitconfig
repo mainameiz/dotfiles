@@ -1,0 +1,15 @@
+[user]
+	name = Nikolay Markov
+	email = mainameiz@gmail.com
+[core]
+	editor = vim
+	excludesfile = /home/predator/.gitignore_global
+[merge]
+	tool = vimdiff
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+	visual = !gitg
