@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 syntax on
 filetype plugin indent on
 
@@ -22,7 +24,7 @@ set pastetoggle=<F5>
 " see it in the status line), so I don’t miss the normal line numbers. I do
 " care how far away a particular line might be, because it tells me what
 " number I need to use with motion commands like d<NUMBER>d.
-set relativenumber
+"set relativenumber
 
 " undofile tells Vim to create <FILENAME>.un~ files whenever you edit a file.
 " These files contain undo information so you can undo previous actions even

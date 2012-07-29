@@ -37,16 +37,16 @@ setopt IGNORE_EOF
 bindkey -e
 
 fpath=(~/.zsh/Completion $fpath)
-zstyle :compinstall filename '/home/predator/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 # менюшку нам для астокомплита 
 zstyle ':completion:*' menu yes select
 # разукрашенное автодополнение PID'ов для kill 
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=$color[cyan]=$color[red]"
 
 # Hosts completion from .ssh/known_hosts
-local _myhosts
-_myhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
-zstyle ':completion:*' hosts $_myhosts
+#local _myhosts
+#_myhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
+#zstyle ':completion:*' hosts $_myhosts
 
 # Позволяем разворачивать сокращенный ввод, к примеру cd /u/sh в /usr/share 
 autoload -Uz compinit && compinit
@@ -55,22 +55,24 @@ alias grep='grep --colour=auto'
 # показ классификации файлов в цвете
 alias ls='ls --color=auto'
 # вывog в gлuннoм фopмaтe
-alias ll='ls -l'
+alias ll='ls -lh'
 # вывog всех файлов, включая dot-фaйлы, kpoмe . u ..
 alias la='ls -A'
 # вывog всех файлов, включая dot-фaйлы, kpoмe . u .. в длинном формате
-alias lla='ls -lA'
+alias lla='ls -lAh'
 # вывog вcex фaйлoв в gлuннoм фopмaтe, вkлючaя inodes
 alias li='ls -ial'
 # вывод только каталогов
 alias lsd='ls -ld *(-/DN)'
 # вывog тoльko dot-фaйлoв
 alias lsa='ls -ld .*'
-# 
+# сокращения для cd
 alias cd..='cd ..'
+alias ..='cd ..'
+alias ....='cd ../..'
 # более человекочитаемые df и du
 alias df='df -h'
-alias du='du -h'
+alias du='du -sh'
 # переименование-перемещение c пogтвepжgeнueм без коррекции
 alias mv='nocorrect mv -i'
 # рекурсивное копирование с подтверждением без коррекции
@@ -83,6 +85,10 @@ alias rmf='nocorrect rm -f'
 alias rmrf='nocorrect rm -fR'
 # создание каталогов без коррекции
 alias mkdir='nocorrect mkdir'
+# readable free
+alias free='free -m'
+# ssh
+alias s='ssh'
 
 # разукрашиваем некоторые команды с помощью grc
 [[ -f /usr/bin/grc ]] && {
@@ -148,3 +154,14 @@ $PR_BLUE%# > $PR_NO_COLOUR"
 
 # часы справа
 #RPROMPT="%B%*%b"
+
+# баг с ruby
+unset RUBYOPT
+
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# включает возможность редактировать команды в редакторе
+# Ctrl+x; Ctrl+e 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
