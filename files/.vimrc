@@ -67,10 +67,10 @@ nnoremap <leader><space> :noh<cr>
 "inoremap <right> <nop>
 
 " Переключение табов по Ctrl+PageDown (следующая) и Ctrl+PageUp (предыдущая)
-imap <C-PageUp> <ESC>gti
-imap <C-PageDown> <ESC>gTi
-nmap <C-PageUp> gt
-nmap <C-PageDown> gT
+imap <S-PageUp> <ESC>gTi
+imap <S-PageDown> <ESC>gti
+nmap <S-PageUp> gt
+nmap <S-PageDown> gT
 "map <C-1> 1gt
 "map <C-2> 2gt
 "map <C-3> 3gt
