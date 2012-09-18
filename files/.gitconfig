@@ -14,3 +14,8 @@
 	last = log -1 HEAD
   visual = !gitg
   rmc = rm --cached
+  rmt = remote
+[color]
+  ui = true
+[config]
+  [format]

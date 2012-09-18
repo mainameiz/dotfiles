@@ -1,14 +1,24 @@
 #/bin/sh
 
+REPO_DIR=".dotfiles"
+REPO="${HOME}/${REPO_DIR}"
+GIT_DIR="--git-dir=${REPO}/.git --work-tree=${REPO}/"
+
+if [[ -d "${REPO}/.git" ]]; then
+  echo "Updating repository..."
+  git $GIT_DIR pull
+else
+  echo "Cloning repository..."
+  git clone https://github.com/mainameiz/dotfiles.git "${REPO}"
+fi
+
+FILES=$(git $GIT_DIR ls-tree --name-only HEAD files/)
+
 cd ~
-git clone https://github.com/mainameiz/dotfiles.git .dotfiles
-
 echo " Symlinking..."
-dotfiles_dir=".dotfiles/files"
-for item in `ls -A $HOME/$dotfiles_dir`; do
-  file="$dotfiles_dir/$item"
-  #  echo "$file"
-  ln -sv "$file"
+for ITEM in ${FILES}; do
+  FILE="$REPO_DIR/$ITEM"
+  #echo ">>> $FILE"
+  ln -sv "$FILE"
 done
-
 cd -

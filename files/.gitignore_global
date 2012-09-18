@@ -1,6 +1,4 @@
 .*.sw[a-z]
 *~
-*.un~
-.*.swp
 .svn
 .DS_Store
