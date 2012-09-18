@@ -166,4 +166,6 @@ bindkey '^x^e' edit-command-line
 
 
 # Дистрибутиво-специфичные скрипты
-source "~/.zsh/distros/gentoo.zsh"
+for FILE in `ls ~/.zsh/distros/*.zsh`; do
+  source "${FILE}"
+done
