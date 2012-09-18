@@ -143,12 +143,14 @@ fi
 done
    PR_NO_COLOUR="%{$terminfo[sgr0]%}"
  
-local blue_op=""$PR_BLUE"["$PR_NO_COLOUR""
-local blue_cp=""$PR_BLUE"]"$PR_NO_COLOUR""
-local path_p="$PR_MAGENTA%/$PR_NO_COLOUR%b"
-local user_host="%B$PR_GREEN%n@%m$PR_NO_COLOUR"
-PROMPT="${user_host}${path_p}
+if [[ ${EUID} == 0 ]]; then
+  PROMPT="%B$PR_RED%M $PR_BLUE%/ # $PR_NO_COLOUR%b"
+else
+  local path_p="$PR_MAGENTA%/$PR_NO_COLOUR%b"
+  local user_host="%B$PR_GREEN%n@%M$PR_NO_COLOUR"
+  PROMPT="${user_host}${path_p}
 $PR_BLUE%# > $PR_NO_COLOUR"
+fi
 
 # часы справа
 #RPROMPT="%B%*%b"
@@ -164,8 +166,7 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-
 # Дистрибутиво-специфичные скрипты
-for FILE in `ls ~/.zsh/distros/*.zsh`; do
+for FILE in `ls ~/.zsh/distros/*.sh`; do
   source "${FILE}"
 done
