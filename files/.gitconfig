@@ -3,7 +3,7 @@
 	email = mainameiz@gmail.com
 [core]
 	editor = vim
-	excludesfile = /home/predator/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [merge]
 	tool = vimdiff
 [alias]
