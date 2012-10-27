@@ -15,6 +15,8 @@
   visual = !gitg
   rmc = rm --cached
   rmt = remote
+  up = pull --rebase
+  put = push origin HEAD
 [color]
   ui = true
 [config]
