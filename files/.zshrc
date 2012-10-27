@@ -57,7 +57,7 @@ alias ls='ls --color=auto'
 # вывog в gлuннoм фopмaтe
 alias ll='ls -lh'
 # вывog всех файлов, включая dot-фaйлы, kpoмe . u ..
-alias la='ls -lAh'
+alias la='ls -lah'
 # вывog вcex фaйлoв в gлuннoм фopмaтe, вkлючaя inodes
 alias li='ls -ial'
 # вывод только каталогов
@@ -87,6 +87,8 @@ alias mkdir='nocorrect mkdir'
 alias free='free -m'
 # ssh
 alias s='ssh'
+alias g='grep'
+alias psa='ps aux'
 
 # разукрашиваем некоторые команды с помощью grc
 [[ -f /usr/bin/grc ]] && {
