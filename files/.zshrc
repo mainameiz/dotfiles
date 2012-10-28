@@ -2,8 +2,8 @@ source /etc/zsh/zprofile
 
 autoload zkbd
 [[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
-[[ ! -f ~/.zkbd/$TERM-$VENDOR-$OSTYPE ]] && zkbd
-source  ~/.zkbd/$TERM-$VENDOR-$OSTYPE
+[[ ! -f ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]] && zkbd
+source  ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
 #setup key accordingly
 [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
 [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
@@ -131,7 +131,6 @@ extract () {
         echo "'$1' is not a valid file"
     fi
 }
-
  
 # See if we can use colors.
 autoload colors zsh/terminfo
@@ -151,7 +150,7 @@ else
   local path_p="$PR_MAGENTA%/$PR_NO_COLOUR%b"
   local user_host="%B$PR_GREEN%n@%M$PR_NO_COLOUR"
   PROMPT="${user_host}${path_p}
-$PR_BLUE%# > $PR_NO_COLOUR"
+$PR_BLUE%# ➔ $PR_NO_COLOUR"
 fi
 
 # часы справа
@@ -172,3 +171,5 @@ bindkey '^x^e' edit-command-line
 for FILE in `ls ~/.zsh/distros/*.sh`; do
   source "${FILE}"
 done
+
+eval `dircolors ~/.dotfiles/vendor/dircolors-solarized/dircolors.ansi-dark`

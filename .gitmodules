@@ -7,3 +7,12 @@
 [submodule "files/.vim/bundle/vim-coffee-script"]
 	path = files/.vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vendor/oh-my-zsh"]
+	path = vendor/oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vendor/gnome-terminal-colors-solarized"]
+	path = vendor/gnome-terminal-colors-solarized
+	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
+[submodule "vendor/dircolors-solarized"]
+	path = vendor/dircolors-solarized
+	url = git://github.com/seebi/dircolors-solarized.git

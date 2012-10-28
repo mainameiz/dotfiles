@@ -14,7 +14,8 @@ set softtabstop=2
 set expandtab
 
 set showtabline=2
-
+" show tabs and spaces
+" set list
 set pastetoggle=<F5>
 
 " relativenumber changes Vim’s line number column to display how far away each
@@ -24,7 +25,7 @@ set pastetoggle=<F5>
 " see it in the status line), so I don’t miss the normal line numbers. I do
 " care how far away a particular line might be, because it tells me what
 " number I need to use with motion commands like d<NUMBER>d.
-"set relativenumber
+set relativenumber
 
 " undofile tells Vim to create <FILENAME>.un~ files whenever you edit a file.
 " These files contain undo information so you can undo previous actions even
@@ -67,13 +68,29 @@ nnoremap <leader><space> :noh<cr>
 "inoremap <right> <nop>
 
 " Переключение табов по Ctrl+PageDown (следующая) и Ctrl+PageUp (предыдущая)
-imap <C-PageUp> <ESC>gTi
-imap <C-PageDown> <ESC>gti
-nmap <C-PageUp> gt
-nmap <C-PageDown> gT
+if &term =~ "screen"
+  imap [5;5~ <ESC>gTi
+  imap [6;5~ <ESC>gti
+  nmap [5;5~ gt
+  nmap [6;5~ gT
+endif
+
+if &term =~ "xterm"
+  imap <C-PageUp> <ESC>gTi
+  imap <C-PageDown> <ESC>gti
+  nmap <C-PageUp> gt
+  nmap <C-PageDown> gT
+endif
 "map <C-1> 1gt
 "map <C-2> 2gt
 "map <C-3> 3gt
+
+" NERDTree hotkeys
+nmap <F3> :NERDTreeToggle<CR>
+vmap <F3> <ESC>:NERDTreeToggle<CR>i
+imap <F3> <ESC>:NERDTreeToggle<CR>i
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "I also like to make ; do the same thing as : — it’s one less key to hit every
 "time I want to save a file:
@@ -149,9 +166,11 @@ map Ь M
 map Б <
 map Ю >
 
-
 au BufRead,BufNewFile *.as set filetype=actionscript
 
 ca tn tabnew
 ca th tabp
 ca tl tabn
+
+" remove trailing whitespaces before saving
+autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
