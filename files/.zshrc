@@ -17,155 +17,55 @@ source  ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
 [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
 [[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
 
-# файл истории команд 
-HISTFILE=~/.histfile
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.dotfiles/vendor/oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
 
 HISTSIZE=1000
-
 # Число команд, сохраняемых в HISTFILE 
 SAVEHIST=1000
-
-setopt appendhistory no_beep extendedglob nomatch
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt AUTO_CD
-setopt histexpiredupsfirst histfindnodups
-unsetopt notify
-setopt IGNORE_EOF
-
-# peжuм нaвuгaцuu в cтuлe emacs 
-bindkey -e
-
-fpath=(~/.zsh/Completion $fpath)
-zstyle :compinstall filename '~/.zshrc'
-# менюшку нам для астокомплита 
-zstyle ':completion:*' menu yes select
-# разукрашенное автодополнение PID'ов для kill 
-zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=$color[cyan]=$color[red]"
-
-# Hosts completion from .ssh/known_hosts
-#local _myhosts
-#_myhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
-#zstyle ':completion:*' hosts $_myhosts
-
-# Позволяем разворачивать сокращенный ввод, к примеру cd /u/sh в /usr/share 
-autoload -Uz compinit && compinit
-
-alias grep='grep --colour=auto'
-# показ классификации файлов в цвете
-alias ls='ls --color=auto'
-# вывog в gлuннoм фopмaтe
-alias ll='ls -lh'
-# вывog всех файлов, включая dot-фaйлы, kpoмe . u ..
-alias la='ls -lah'
-# вывog вcex фaйлoв в gлuннoм фopмaтe, вkлючaя inodes
-alias li='ls -ial'
-# вывод только каталогов
-alias lsd='ls -ld *(-/DN)'
-# вывog тoльko dot-фaйлoв
-alias lsa='ls -ld .*'
-# сокращения для cd
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ....='cd ../..'
-# человекочитаемые df и du
-alias df='df -h'
-alias du='du -sh'
-# переименование-перемещение c пogтвepжgeнueм без коррекции
-alias mv='nocorrect mv -i'
-# рекурсивное копирование с подтверждением без коррекции
-alias cp='nocorrect cp -iR'
-# удаление с подтверждением без коррекции
-alias rm='nocorrect rm'
-# принудимтельное удаление без коррекции
-alias rmf='nocorrect rm -f'
-# принудительное рекурсивное удаление без коррекции
-alias rmrf='nocorrect rm -fR'
-# создание каталогов без коррекции
-alias mkdir='nocorrect mkdir'
-# readable free
-alias free='free -m'
-# ssh
-alias s='ssh'
-alias g='grep'
-alias psa='ps aux'
-
-# разукрашиваем некоторые команды с помощью grc
-[[ -f /usr/bin/grc ]] && {
-  alias ping="grc --colour=auto ping"
-  alias traceroute="grc --colour=auto traceroute"
-  alias make="grc --colour=auto make"
-  alias diff="grc --colour=auto diff"
-  alias cvs="grc --colour=auto cvs"
-  alias netstat="grc --colour=auto netstat"
-}
-
-# алиасы по расширениям файлов
-alias -s ini=vim
-alias -s rb=vim
-alias -s conf=vim
-alias -s cfg=vim
-alias -s txt=vim
 
 # Загружаем RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# Легкая распаковка архивов
-extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)   tar xvjf $1        ;;
-            *.tar.gz)    tar xvzf $1     ;;
-            *.bz2)       bunzip2 $1       ;;
-            *.rar)       unrar x $1     ;;
-            *.gz)        gunzip $1     ;;
-            *.tar)       tar xvf $1        ;;
-            *.tbz2)      tar xvjf $1      ;;
-            *.tgz)       tar xvzf $1       ;;
-            *.zip)       unzip $1     ;;
-            *.Z)         uncompress $1  ;;
-            *.7z)        7z x $1    ;;
-            *)           echo "'$1' cannot be extracted via >extract<" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
- 
-# See if we can use colors.
-autoload colors zsh/terminfo
-if [[ "$terminfo[colors]" -ge 8 ]]; then
-   colors
-fi
-   for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-   eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-   eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
-   (( count = $count + 1 ))
-done
-   PR_NO_COLOUR="%{$terminfo[sgr0]%}"
- 
-if [[ ${EUID} == 0 ]]; then
-  PROMPT="%B$PR_RED%M $PR_BLUE%/ # $PR_NO_COLOUR%b"
-else
-  local path_p="$PR_MAGENTA%/$PR_NO_COLOUR%b"
-  local user_host="%B$PR_GREEN%n@%M$PR_NO_COLOUR"
-  PROMPT="${user_host}${path_p}
-$PR_BLUE%# ➔ $PR_NO_COLOUR"
-fi
+[[ -d ~/.zsh/functions ]] && source ~/.zsh/functions/*.zsh
+[[ -e ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 
-# часы справа
-#RPROMPT="%B%*%b"
-
-# баг с ruby
+# исправляет баг с ruby
 unset RUBYOPT
-
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# включает возможность редактировать команды в редакторе
-# Ctrl+x; Ctrl+e 
-autoload edit-command-line
-zle -N edit-command-line
-bindkey '^x^e' edit-command-line
 
 # Дистрибутиво-специфичные скрипты
 for FILE in `ls ~/.zsh/distros/*.sh`; do
@@ -173,3 +73,6 @@ for FILE in `ls ~/.zsh/distros/*.sh`; do
 done
 
 eval `dircolors ~/.dotfiles/vendor/dircolors-solarized/dircolors.ansi-dark`
+
+# peжuм нaвuгaцuu в cтuлe emacs 
+bindkey -e
