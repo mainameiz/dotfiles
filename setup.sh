@@ -6,7 +6,7 @@ GIT_DIR="--git-dir=${REPO}/.git --work-tree=${REPO}/"
 
 if [[ -d "${REPO}/.git" ]]; then
   echo "Updating repository..."
-  #git $GIT_DIR pull
+  git $GIT_DIR pull
 else
   echo "Cloning repository..."
   git clone https://github.com/mainameiz/dotfiles.git "${REPO}"
