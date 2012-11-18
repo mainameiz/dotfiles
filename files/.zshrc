@@ -72,7 +72,7 @@ for FILE in `ls ~/.zsh/distros/*.sh`; do
   source "${FILE}"
 done
 
-eval `dircolors ~/.dotfiles/vendor/dircolors-solarized/dircolors.ansi-dark`
+eval `dircolors -b ~/.dotfiles/vendor/dircolors-solarized/dircolors.ansi-dark`
 
 # peжuм нaвuгaцuu в cтuлe emacs 
 bindkey -e
