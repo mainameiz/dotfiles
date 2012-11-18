@@ -7,9 +7,6 @@
 [submodule "files/.vim/bundle/vim-coffee-script"]
 	path = files/.vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vendor/oh-my-zsh"]
-	path = vendor/oh-my-zsh
-	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vendor/gnome-terminal-colors-solarized"]
 	path = vendor/gnome-terminal-colors-solarized
 	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
@@ -21,4 +18,7 @@
 	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "files/.vim/bundle/vim-fugitive"]
 	path = files/.vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+  url = git://github.com/tpope/vim-fugitive.git
+[submodule "vendor/oh-my-zsh"]
+  path = vendor/oh-my-zsh
+  url = git@github.com:mainameiz/oh-my-zsh.git
