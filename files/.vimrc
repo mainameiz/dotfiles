@@ -71,8 +71,8 @@ nnoremap <leader><space> :noh<cr>
 
 " Переключение табов по Ctrl+PageDown (следующая) и Ctrl+PageUp (предыдущая)
 if &term =~ "screen"
-  imap [5;5~ <ESC>gTi
-  imap [6;5~ <ESC>gti
+  imap [5;5~ <ESC>gti
+  imap [6;5~ <ESC>gTi
   nmap [5;5~ gt
   nmap [6;5~ gT
 endif

@@ -16,6 +16,9 @@
 [submodule "files/.vim/bundle/vim-colors-solarized"]
 	path = files/.vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "files/.vim/bundle/vim-fugitive"]
+	path = files/.vim/bundle/vim-fugitive
+  url = git://github.com/tpope/vim-fugitive.git
 [submodule "vendor/oh-my-zsh"]
-	path = vendor/oh-my-zsh
-	url = git@github.com:mainameiz/oh-my-zsh.git
+  path = vendor/oh-my-zsh
+  url = git@github.com:mainameiz/oh-my-zsh.git

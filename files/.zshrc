@@ -48,7 +48,7 @@ ZSH_THEME="maran"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,12 +63,13 @@ SAVEHIST=1000
 
 [[ -d ~/.zsh/functions ]] && source ~/.zsh/functions/*.zsh
 [[ -e ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
+[[ -e ~/.zsh/completions.zsh ]] && source ~/.zsh/completions.zsh
 
 # исправляет баг с ruby
 unset RUBYOPT
 
 # Дистрибутиво-специфичные скрипты
-for FILE in `ls ~/.zsh/distros/*.sh`; do
+for FILE in ~/.zsh/distros/*.sh; do
   source "${FILE}"
 done
 
@@ -76,3 +77,5 @@ eval `dircolors -b ~/.dotfiles/vendor/dircolors-solarized/dircolors.ansi-dark`
 
 # peжuм нaвuгaцuu в cтuлe emacs 
 bindkey -e
+
+unsetopt correct_all
