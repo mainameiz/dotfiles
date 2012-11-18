@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 REPO_DIR=".dotfiles"
 REPO="${HOME}/${REPO_DIR}"
