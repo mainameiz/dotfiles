@@ -54,4 +54,4 @@ alias -s txt=vim
 
 alias devlog='tail -f log/development.log'
 
-alias tmux="TERM=screen-256color tmux"
+alias tmux="TERM=xterm-256color tmux"
