@@ -21,4 +21,4 @@
   url = git://github.com/tpope/vim-fugitive.git
 [submodule "vendor/oh-my-zsh"]
   path = vendor/oh-my-zsh
-  url = git@github.com:mainameiz/oh-my-zsh.git
+  url = git://github.com/mainameiz/oh-my-zsh.git
