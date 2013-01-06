@@ -21,3 +21,5 @@
   ui = true
 [config]
   [format]
+[push]
+  default = current
