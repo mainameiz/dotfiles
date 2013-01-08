@@ -21,7 +21,7 @@ if [[ -d "${REPO}/.git" ]]; then
   git $GIT_DIR pull origin master
 else
   echo "Cloning repository..."
-  git clone https://github.com/mainameiz/dotfiles.git "${REPO}"
+  git clone --recursive https://github.com/mainameiz/dotfiles.git "${REPO}"
 fi
 
 FILES=$(git $GIT_DIR ls-tree --name-only HEAD files/)

@@ -1,3 +1,3 @@
 # Installation
 
-curl -L https://raw.github.com/mainameiz/dotfiles/master/setup.sh | /bin/sh
+curl -L https://raw.github.com/mainameiz/dotfiles/master/setup.sh | /bin/bash
