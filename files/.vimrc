@@ -1,4 +1,4 @@
-call pathogen#infect()
+execute pathogen#infect()
 
 syntax on
 
@@ -7,6 +7,15 @@ syntax on
 "colorscheme solarized
 
 filetype plugin indent on
+
+" %t - filename
+" %{fugitive#statusline()} - git branch from fugitive plugin
+" %= - right separator
+" %c - column counter
+" %l - line counter
+" %L - total lines
+" %P - percentage
+set statusline=%t\ %{fugitive#statusline()}%=%c,%l/%L\ %P
 
 " <leader> key:
 let mapleader = ","
