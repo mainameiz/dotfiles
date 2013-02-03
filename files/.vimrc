@@ -17,6 +17,9 @@ filetype plugin indent on
 " %P - percentage
 set statusline=%t\ %{fugitive#statusline()}%=%c,%l/%L\ %P
 
+" Status line colors
+hi StatusLine ctermbg=White ctermfg=Black
+
 " <leader> key:
 let mapleader = ","
 
