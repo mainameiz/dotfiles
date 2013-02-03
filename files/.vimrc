@@ -3,7 +3,7 @@ execute pathogen#infect()
 syntax on
 
 " Solarized colors
-"set background=dark
+set background=dark
 "colorscheme solarized
 
 filetype plugin indent on
