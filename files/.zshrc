@@ -79,3 +79,5 @@ eval `dircolors -b ~/.dotfiles/vendor/dircolors-solarized/dircolors.ansi-dark`
 bindkey -e
 
 unsetopt correct_all
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
