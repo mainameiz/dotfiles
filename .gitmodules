@@ -22,3 +22,9 @@
 [submodule "vendor/oh-my-zsh"]
   path = vendor/oh-my-zsh
   url = git://github.com/mainameiz/oh-my-zsh.git
+[submodule "files/.vim/bundle/snipmate"]
+	path = files/.vim/bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "files/.vim/bundle/vim-ruby"]
+	path = files/.vim/bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git

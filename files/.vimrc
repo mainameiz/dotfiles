@@ -3,10 +3,11 @@ execute pathogen#infect()
 syntax on
 
 " Solarized colors
-"set background=dark
-"colorscheme solarized
+set background=dark
+colorscheme solarized
 
 filetype plugin indent on
+set colorcolumn=80
 
 " %t - filename
 " %{fugitive#statusline()} - git branch from fugitive plugin
@@ -192,3 +193,8 @@ ca tl tabn
 
 " remove trailing whitespaces before saving
 autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
+
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
