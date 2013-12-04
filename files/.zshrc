@@ -61,6 +61,9 @@ SAVEHIST=1000
 # Загружаем RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Загружаем NVM
+[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+
 [[ -d ~/.zsh/functions ]] && source ~/.zsh/functions/*.zsh
 [[ -e ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 [[ -e ~/.zsh/completions.zsh ]] && source ~/.zsh/completions.zsh
@@ -81,3 +84,11 @@ bindkey -e
 unsetopt correct_all
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/local/bin
+PATH=$PATH:$HOME/adt/adt-bundle-linux-x86_64-20130917/sdk/platform-tools
+
+export RUBY_HEAP_MIN_SLOTS=2500000
+export RUBY_HEAP_FREE_MIN=500000
+export RUBY_HEAP_SLOTS_INCREMENT=1000000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=100000000

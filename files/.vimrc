@@ -9,6 +9,10 @@ colorscheme solarized
 filetype plugin indent on
 set colorcolumn=80
 
+hi Normal ctermbg=none
+hi Comment ctermbg=none
+hi LIneNr ctermbg=none
+
 " %t - filename
 " %{fugitive#statusline()} - git branch from fugitive plugin
 " %= - right separator
@@ -95,10 +99,10 @@ if &term =~ "screen"
 endif
 
 if &term =~ "xterm"
-  imap <C-PageUp> <ESC>gTi
-  imap <C-PageDown> <ESC>gti
-  nmap <C-PageUp> gt
-  nmap <C-PageDown> gT
+  imap <A-Down> <ESC>gTi
+  imap <A-Up> <ESC>gti
+  nmap <A-Up> gt
+  nmap <A-Down> gT
 endif
 "map <C-1> 1gt
 "map <C-2> 2gt
