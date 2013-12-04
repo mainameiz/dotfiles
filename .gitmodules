@@ -28,3 +28,6 @@
 [submodule "vendor/oh-my-zsh"]
 	path = vendor/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "files/.vim/bundle/command-t"]
+	path = files/.vim/bundle/command-t
+	url = https://github.com/wincent/Command-T.git
