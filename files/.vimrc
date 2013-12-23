@@ -9,6 +9,8 @@ colorscheme solarized
 filetype plugin indent on
 "set colorcolumn=80
 
+set scrolloff=5
+
 hi Normal ctermbg=none
 hi Comment ctermbg=none
 hi LIneNr ctermbg=none
