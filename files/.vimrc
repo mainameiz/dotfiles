@@ -7,7 +7,7 @@ set background=dark
 colorscheme solarized
 
 filetype plugin indent on
-set colorcolumn=80
+"set colorcolumn=80
 
 hi Normal ctermbg=none
 hi Comment ctermbg=none
@@ -113,8 +113,6 @@ nmap <F3> :NERDTreeToggle<CR>
 vmap <F3> <ESC>:NERDTreeToggle<CR>i
 imap <F3> <ESC>:NERDTreeToggle<CR>i
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 "I also like to make ; do the same thing as : — it’s one less key to hit every
 "time I want to save a file:
 nnoremap ; :
@@ -196,9 +194,9 @@ ca th tabp
 ca tl tabn
 
 " remove trailing whitespaces before saving
-autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
+autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
 
 
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+"autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
