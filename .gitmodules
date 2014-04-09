@@ -31,3 +31,18 @@
 [submodule "files/.vim/bundle/command-t"]
 	path = files/.vim/bundle/command-t
 	url = https://github.com/wincent/Command-T.git
+[submodule "files/.vim/bundle/nerdcommenter"]
+	path = files/.vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "files/.vim/bundle/ack"]
+	path = files/.vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "files/.vim/bundle/rainbow_parentheses"]
+	path = files/.vim/bundle/rainbow_parentheses
+	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "files/.vim/vim-surround"]
+	path = files/.vim/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "files/.vim/bundle/vim-surround"]
+	path = files/.vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git

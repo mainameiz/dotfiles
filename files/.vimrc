@@ -38,9 +38,10 @@ set softtabstop=2
 set expandtab
 set ls=2
 
-set showtabline=2
 " show tabs and spaces
-" set list
+set showtabline=2
+
+" Use it to paste text from external sources so it can be intended properly.
 set pastetoggle=<F5>
 
 " relativenumber changes Vim’s line number column to display how far away each
@@ -68,6 +69,18 @@ set nocompatible
 " be case-sensitive. Most of the time this does what you want.
 set ignorecase
 set smartcase
+
+
+" Realtime search
+set incsearch
+set showmatch
+set hlsearch
+
+set list
+set listchars=tab:▸\
+
+" Save all files when losing focus from vim's window
+au FocusLost * :wa
 
 nnoremap <leader><space> :noh<cr>
 
@@ -106,21 +119,53 @@ if &term =~ "xterm"
   nmap <A-Up> gt
   nmap <A-Down> gT
 endif
+
 "map <C-1> 1gt
 "map <C-2> 2gt
 "map <C-3> 3gt
 
 " NERDTree hotkeys
-nmap <F3> :NERDTreeToggle<CR>
-vmap <F3> <ESC>:NERDTreeToggle<CR>i
-imap <F3> <ESC>:NERDTreeToggle<CR>i
+"nmap <F3> :NERDTreeToggle<CR>
+"vmap <F3> <ESC>:NERDTreeToggle<CR>i
+"imap <F3> <ESC>:NERDTreeToggle<CR>i
 
 "I also like to make ; do the same thing as : — it’s one less key to hit every
 "time I want to save a file:
 nnoremap ; :
 
-" retab whole file
+" Retab whole file aka prettify.
 map <F7> mzgg=G`z<CR>
+
+" Split window vertically
+nnoremap <leader>w <C-w>v<C-w>l
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 map ё `
 map й q
@@ -189,16 +234,26 @@ map Ь M
 map Б <
 map Ю >
 
+" Turn syntax highlight on for actionscript files.
 au BufRead,BufNewFile *.as set filetype=actionscript
 
 ca tn tabnew
 ca th tabp
 ca tl tabn
 
-" remove trailing whitespaces before saving
+" Remove trailing whitespaces before saving (for ruby, erb views)
 autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
 
 
 "autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
 "autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+""" Folding settings """
+set foldmethod=manual
+" Toggle folding
+nnoremap <Space> za
+" Create foldings using mouse in visual mode.
+vnoremap <Space> zf
+
+set omnifunc=syntaxcomplete#Complete
