@@ -76,9 +76,6 @@ set incsearch
 set showmatch
 set hlsearch
 
-set list
-set listchars=tab:▸\
-
 " Save all files when losing focus from vim's window
 au FocusLost * :wa
 
@@ -242,7 +239,7 @@ ca th tabp
 ca tl tabn
 
 " Remove trailing whitespaces before saving (for ruby, erb views)
-autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
+autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
 
 
 "autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
@@ -256,4 +253,11 @@ nnoremap <Space> za
 " Create foldings using mouse in visual mode.
 vnoremap <Space> zf
 
+" Save and restore folding
+"autocmd BufWinLeave *.rb,*.coffee,*.css mkview
+"autocmd BufWinEnter *.rb,*.coffee,*.css silent loadview 
+
 set omnifunc=syntaxcomplete#Complete
+
+" Dont show dollar sign at the end of each line
+set nolist

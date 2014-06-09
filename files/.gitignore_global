@@ -2,3 +2,8 @@
 *~
 .svn
 .DS_Store
+
+zeus.json
+custom_plan.rb
+
+.ruby-gemset
