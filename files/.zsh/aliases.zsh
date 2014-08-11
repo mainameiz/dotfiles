@@ -52,6 +52,7 @@ alias -s conf=vim
 alias -s cfg=vim
 alias -s txt=vim
 
-alias devlog='tail -f log/development.log'
+alias devlog='tailf log/development.log'
+alias testlog='tailf log/test.log'
 
 alias tmux="TERM=xterm-256color tmux attach || tmux new"

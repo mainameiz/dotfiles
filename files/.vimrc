@@ -76,6 +76,8 @@ set incsearch
 set showmatch
 set hlsearch
 
+set wildignore+=log,tmp,doc,.git
+
 " Save all files when losing focus from vim's window
 au FocusLost * :wa
 
@@ -231,15 +233,35 @@ map Ь M
 map Б <
 map Ю >
 
-" Turn syntax highlight on for actionscript files.
-au BufRead,BufNewFile *.as set filetype=actionscript
+" Turn syntax highlight on for different porgramming langs.
+au BufNewFile,BufRead *.as set filetype=actionscript
+au BufNewFile,BufRead *.hamlc set filetype=haml
+
+"let g:rainbow_active = 1
+let g:rainbow_ctermfgs =  [ 'darkred',
+                          \ 'Darkblue',
+                          \ 'darkcyan',
+                          \ 'darkgreen',
+                          \ 'darkmagenta',
+                          \ 'darkred',
+                          \ 'darkmagenta',
+                          \ 'brown',
+                          \ 'gray',
+                          \ 'black',
+                          \ 'darkmagenta',
+                          \ 'Darkblue',
+                          \ 'darkgreen',
+                          \ 'darkcyan',
+                          \ 'darkred',
+                          \ 'red',
+                          \ ]
 
 ca tn tabnew
 ca th tabp
 ca tl tabn
 
-" Remove trailing whitespaces before saving (for ruby, erb views)
-autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
+" Remove trailing whitespaces before saving
+autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake,*.hamlc :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
 
 
 "autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 

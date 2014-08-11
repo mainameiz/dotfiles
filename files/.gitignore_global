@@ -7,3 +7,4 @@ zeus.json
 custom_plan.rb
 
 .ruby-gemset
+.rake_tasks
