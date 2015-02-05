@@ -37,15 +37,21 @@
 [submodule "files/.vim/bundle/ack"]
 	path = files/.vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "files/.vim/bundle/rainbow_parentheses"]
-	path = files/.vim/bundle/rainbow_parentheses
-	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "files/.vim/vim-surround"]
-	path = files/.vim/vim-surround
-	url = https://github.com/tpope/vim-surround.git
 [submodule "files/.vim/bundle/vim-surround"]
 	path = files/.vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "files/.vim/bundle/rainbow"]
 	path = files/.vim/bundle/rainbow
 	url = https://github.com/oblitum/rainbow.git
+[submodule "files/.vim/bundle/vim-endwise"]
+	path = files/.vim/bundle/vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
+[submodule "files/.vim/bundle/vim-indent-guides"]
+	path = files/.vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "files/.vim/bundle/tabular"]
+	path = files/.vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "files/.vim/bundle/vim-json"]
+	path = files/.vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json

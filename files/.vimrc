@@ -3,17 +3,42 @@ execute pathogen#infect()
 syntax on
 
 " Solarized colors
-set background=dark
+"set background=dark
 colorscheme solarized
+
+colorscheme molokai
 
 filetype plugin indent on
 "set colorcolumn=80
 
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
+
+"nmap <C-S-V> "+p
+"inoremap <C-S-V> <ESC>"+pi
+
+let g:vim_json_syntax_conceal = 0
+
+"color codeschool
+set guifont=Monaco\ 11
+"set guifont=Ubuntu\ Mono\ 16
+set guioptions-=T " Removes top toolbar
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
+
 set scrolloff=5
 
-hi Normal ctermbg=none
-hi Comment ctermbg=none
-hi LIneNr ctermbg=none
+"hi Normal ctermbg=none
+"hi Comment ctermbg=none
+"hi LineNr ctermbg=none
+
+"hi IndentGuidesOdd ctermbg=none
+"hi IndentGuidesEven ctermbg=none
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333
+"hi SpecialComment  guifg=#7E8E91               gui=bold
 
 " %t - filename
 " %{fugitive#statusline()} - git branch from fugitive plugin
@@ -26,6 +51,7 @@ set statusline=%t\ %{fugitive#statusline()}%=%c,%l/%L\ %P
 
 " Status line colors
 hi StatusLine ctermbg=White ctermfg=Black
+highlight LineNr guifg=White
 
 " <leader> key:
 let mapleader = ","
@@ -37,6 +63,8 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set ls=2
+
+
 
 " show tabs and spaces
 set showtabline=2
@@ -77,6 +105,9 @@ set showmatch
 set hlsearch
 
 set wildignore+=log,tmp,doc,.git
+
+" Bash-like filenames autocomplete
+set wildmode=longest,list
 
 " Save all files when losing focus from vim's window
 au FocusLost * :wa
@@ -138,27 +169,6 @@ map <F7> mzgg=G`z<CR>
 " Split window vertically
 nnoremap <leader>w <C-w>v<C-w>l
 
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 nnoremap <C-h> <C-w>h
@@ -166,6 +176,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+inoremap " '
+inoremap ' "
 map ё `
 map й q
 map ц w
@@ -236,32 +248,18 @@ map Ю >
 " Turn syntax highlight on for different porgramming langs.
 au BufNewFile,BufRead *.as set filetype=actionscript
 au BufNewFile,BufRead *.hamlc set filetype=haml
+au BufNewFile,BufRead *.litcoffee set filetype=coffee
+au BufNewFile,BufRead *.cjsx set filetype=coffee
+"au BufNewFile,BufRead *.json set ft=javascript
 
-"let g:rainbow_active = 1
-let g:rainbow_ctermfgs =  [ 'darkred',
-                          \ 'Darkblue',
-                          \ 'darkcyan',
-                          \ 'darkgreen',
-                          \ 'darkmagenta',
-                          \ 'darkred',
-                          \ 'darkmagenta',
-                          \ 'brown',
-                          \ 'gray',
-                          \ 'black',
-                          \ 'darkmagenta',
-                          \ 'Darkblue',
-                          \ 'darkgreen',
-                          \ 'darkcyan',
-                          \ 'darkred',
-                          \ 'red',
-                          \ ]
+au FileType ruby,javascript,coffee,haml,erb call rainbow#load()
+au syntax * cal rainbow#activate()
+au syntax * cal rainbow#load()
 
 ca tn tabnew
-ca th tabp
-ca tl tabn
 
 " Remove trailing whitespaces before saving
-autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake,*.hamlc :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
+autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake,*.hamlc,*.cjsx,*.yml :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
 
 
 "autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
@@ -269,7 +267,7 @@ autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake,*.hamlc 
 "autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 """ Folding settings """
-set foldmethod=manual
+set foldmethod=marker
 " Toggle folding
 nnoremap <Space> za
 " Create foldings using mouse in visual mode.
@@ -281,5 +279,14 @@ vnoremap <Space> zf
 
 set omnifunc=syntaxcomplete#Complete
 
+set completeopt=longest,menuone
+let OmniCpp_ShowPrototypeInAbbr=1
+let OmniCpp_ShowScopeInAbbr=1
+
 " Dont show dollar sign at the end of each line
 set nolist
+
+nmap <F2> :TagbarToggle<CR>
+imap <F2> <ESC>:TagbarToggle<CR>i
+
+let Tlist_Ctags_Cmd = 'coffeetags'

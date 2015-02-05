@@ -83,14 +83,29 @@ bindkey -e
 
 unsetopt correct_all
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/local/bin
 PATH=$PATH:$HOME/adt/adt-bundle-linux-x86_64-20130917/sdk/platform-tools
+
+unset RUBY_HEAP_INIT_SLOTS
+unset RUBY_HEAP_FREE_MIN
+unset RUBY_HEAP_SLOTS_INCREMENT
+unset RUBY_HEAP_SLOTS_GROWTH_FACTOR
+unset RUBY_GC_MALLOC_LIMIT
+unset RUBY_GC_MALLOC_LIMIT_MAX
 
 export RUBY_HEAP_INIT_SLOTS=2500000
 export RUBY_HEAP_FREE_MIN=500000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=100000000
+export RUBY_GC_MALLOC_LIMIT_MAX=1000000000
 
 export GPGKEY=8C3A555D
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+zstyle ':completion:*' matcher-list '' 'm:{-_}={_-}'
+
+unsetopt listambiguous
