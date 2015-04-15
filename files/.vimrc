@@ -1,4 +1,39 @@
-execute pathogen#infect()
+set nocompatible
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'mileszs/ack.vim'
+Plugin 'wincent/Command-T'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'msanders/snipmate.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'oblitum/rainbow'
+Plugin 'tpope/vim-endwise'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'godlygeek/tabular'
+Plugin 'elzr/vim-json'
+Plugin 'mtscout6/vim-cjsx'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'osyo-manga/vim-monster'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin indent on    " required
 
 syntax on
 
@@ -19,6 +54,8 @@ filetype plugin indent on
 
 let g:vim_json_syntax_conceal = 0
 
+let g:neocomplete#enable_at_startup = 1
+
 "color codeschool
 set guifont=Monaco\ 11
 "set guifont=Ubuntu\ Mono\ 16
@@ -27,6 +64,7 @@ set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
 
 set scrolloff=5
+set noignorecase
 
 "hi Normal ctermbg=none
 "hi Comment ctermbg=none
@@ -79,7 +117,13 @@ set pastetoggle=<F5>
 " see it in the status line), so I don’t miss the normal line numbers. I do
 " care how far away a particular line might be, because it tells me what
 " number I need to use with motion commands like d<NUMBER>d.
-set relativenumber
+"set relativenumber
+
+" Show line numbers
+set number
+
+" Mapping to toggle line numbers.
+nmap <C-N><C-N> :set invnumber<CR>
 
 " undofile tells Vim to create <FILENAME>.un~ files whenever you edit a file.
 " These files contain undo information so you can undo previous actions even
@@ -176,8 +220,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-inoremap " '
-inoremap ' "
+"inoremap " '
+"inoremap ' "
 map ё `
 map й q
 map ц w
@@ -250,11 +294,15 @@ au BufNewFile,BufRead *.as set filetype=actionscript
 au BufNewFile,BufRead *.hamlc set filetype=haml
 au BufNewFile,BufRead *.litcoffee set filetype=coffee
 au BufNewFile,BufRead *.cjsx set filetype=coffee
+au BufNewFile,BufRead *.cjsx.erb set filetype=coffee
 "au BufNewFile,BufRead *.json set ft=javascript
 
-au FileType ruby,javascript,coffee,haml,erb call rainbow#load()
-au syntax * cal rainbow#activate()
-au syntax * cal rainbow#load()
+au FocusLost * :wa
+
+"au FileType ruby,javascript,coffee,haml,erb call rainbow#load()
+"let g:rainbow_active = 1
+"au syntax * call rainbow#activate()
+"au syntax * call rainbow#load()
 
 ca tn tabnew
 
@@ -290,3 +338,6 @@ nmap <F2> :TagbarToggle<CR>
 imap <F2> <ESC>:TagbarToggle<CR>i
 
 let Tlist_Ctags_Cmd = 'coffeetags'
+
+" Make words with '-' to be autocompletable.
+set iskeyword+=\-

@@ -58,12 +58,6 @@ HISTSIZE=1000
 # Число команд, сохраняемых в HISTFILE 
 SAVEHIST=1000
 
-# Загружаем RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# Загружаем NVM
-[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
-
 [[ -d ~/.zsh/functions ]] && source ~/.zsh/functions/*.zsh
 [[ -e ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 [[ -e ~/.zsh/completions.zsh ]] && source ~/.zsh/completions.zsh
@@ -87,6 +81,15 @@ unsetopt correct_all
 PATH=$PATH:$HOME/local/bin
 PATH=$PATH:$HOME/adt/adt-bundle-linux-x86_64-20130917/sdk/platform-tools
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Загружаем RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Загружаем NVM
+[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+
 unset RUBY_HEAP_INIT_SLOTS
 unset RUBY_HEAP_FREE_MIN
 unset RUBY_HEAP_SLOTS_INCREMENT
@@ -103,9 +106,9 @@ export RUBY_GC_MALLOC_LIMIT_MAX=1000000000
 
 export GPGKEY=8C3A555D
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 zstyle ':completion:*' matcher-list '' 'm:{-_}={_-}'
 
 unsetopt listambiguous
+
+
+export PROMPT_COMMAND='echo -ne "\033]0;$(basename ${PWD})\007"'

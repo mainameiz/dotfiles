@@ -1,57 +1,9 @@
-[submodule "files/.vim/bundle/vim-rails"]
-	path = files/.vim/bundle/vim-rails
-	url = git://github.com/tpope/vim-rails.git
-[submodule "files/.vim/bundle/vim-haml"]
-	path = files/.vim/bundle/vim-haml
-	url = git://github.com/tpope/vim-haml.git
-[submodule "files/.vim/bundle/vim-coffee-script"]
-	path = files/.vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vendor/gnome-terminal-colors-solarized"]
 	path = vendor/gnome-terminal-colors-solarized
 	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
 [submodule "vendor/dircolors-solarized"]
 	path = vendor/dircolors-solarized
 	url = git://github.com/seebi/dircolors-solarized.git
-[submodule "files/.vim/bundle/vim-colors-solarized"]
-	path = files/.vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "files/.vim/bundle/vim-fugitive"]
-	path = files/.vim/bundle/vim-fugitive
-  url = git://github.com/tpope/vim-fugitive.git
-[submodule "files/.vim/bundle/snipmate"]
-	path = files/.vim/bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
-[submodule "files/.vim/bundle/vim-ruby"]
-	path = files/.vim/bundle/vim-ruby
-	url = git://github.com/vim-ruby/vim-ruby.git
 [submodule "vendor/oh-my-zsh"]
 	path = vendor/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "files/.vim/bundle/command-t"]
-	path = files/.vim/bundle/command-t
-	url = https://github.com/wincent/Command-T.git
-[submodule "files/.vim/bundle/nerdcommenter"]
-	path = files/.vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "files/.vim/bundle/ack"]
-	path = files/.vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "files/.vim/bundle/vim-surround"]
-	path = files/.vim/bundle/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "files/.vim/bundle/rainbow"]
-	path = files/.vim/bundle/rainbow
-	url = https://github.com/oblitum/rainbow.git
-[submodule "files/.vim/bundle/vim-endwise"]
-	path = files/.vim/bundle/vim-endwise
-	url = git://github.com/tpope/vim-endwise.git
-[submodule "files/.vim/bundle/vim-indent-guides"]
-	path = files/.vim/bundle/vim-indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "files/.vim/bundle/tabular"]
-	path = files/.vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
-[submodule "files/.vim/bundle/vim-json"]
-	path = files/.vim/bundle/vim-json
-	url = https://github.com/elzr/vim-json
