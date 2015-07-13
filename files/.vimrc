@@ -44,7 +44,7 @@ colorscheme solarized
 colorscheme molokai
 
 filetype plugin indent on
-"set colorcolumn=80
+set colorcolumn=80
 
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.\+/
@@ -102,8 +102,6 @@ set softtabstop=2
 set expandtab
 set ls=2
 
-
-
 " show tabs and spaces
 set showtabline=2
 
@@ -141,7 +139,6 @@ set nocompatible
 " be case-sensitive. Most of the time this does what you want.
 set ignorecase
 set smartcase
-
 
 " Realtime search
 set incsearch
@@ -307,8 +304,7 @@ au FocusLost * :wa
 ca tn tabnew
 
 " Remove trailing whitespaces before saving
-autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake,*.hamlc,*.cjsx,*.yml :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
-
+autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake,*.hamlc,*.cjsx,*.yml,*.md :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
 
 "autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
 "autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
@@ -341,3 +337,17 @@ let Tlist_Ctags_Cmd = 'coffeetags'
 
 " Make words with '-' to be autocompletable.
 set iskeyword+=\-
+
+" Create parent directories on save
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
