@@ -57,5 +57,7 @@ alias testlog='tailf log/test.log'
 
 alias tmux="TERM=xterm-256color tmux attach || tmux new"
 
-alias vim="gvim --remote"
+#alias vim="gvim --remote"
 alias flushdb="redis-cli flushdb"
+
+alias greplace="git add --all; git ciam; git put -f"

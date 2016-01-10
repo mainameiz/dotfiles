@@ -17,6 +17,9 @@
   rmt = remote
   up = pull --rebase
   put = push origin HEAD
+  aa = add --all
+  ciam = commit --amend --no-edit
+  ciame = commit --amend --edit
 [color]
   ui = true
 [config]
