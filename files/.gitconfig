@@ -1,6 +1,8 @@
 [user]
 	name = Nikolay Markov
-	email = mainameiz@gmail.com
+  email = mainameiz@gmail.com
+  pgpsign = true
+	signingkey = 8C3A555D
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global

@@ -61,3 +61,7 @@ alias tmux="TERM=xterm-256color tmux attach || tmux new"
 alias flushdb="redis-cli flushdb"
 
 alias greplace="git add --all; git ciam; git put -f"
+
+alias bm="~/projects/bookmate"
+alias pub="~/projects/publisher"
+alias open="xdg-open"

@@ -24,7 +24,7 @@ ZSH=$HOME/.dotfiles/vendor/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="maran"
+ZSH_THEME="dieter"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -82,13 +82,13 @@ PATH=$PATH:$HOME/local/bin
 PATH=$PATH:$HOME/adt/adt-bundle-linux-x86_64-20130917/sdk/platform-tools
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# Загружаем RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:/usr/local/heroku/bin"
 
 # Загружаем NVM
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
+
+# Загружаем RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 unset RUBY_HEAP_INIT_SLOTS
 unset RUBY_HEAP_FREE_MIN
@@ -113,5 +113,5 @@ unsetopt listambiguous
 
 export PROMPT_COMMAND='echo -ne "\033]0;$(basename ${PWD})\007"'
 
-export PATH="$HOME/usr/sphinx/bin:$PATH"
+export PATH="$PATH:$HOME/usr/sphinx/bin"
 export DISABLE_SPRING=true
