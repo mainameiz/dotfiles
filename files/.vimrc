@@ -306,7 +306,7 @@ ca tn tabnew
 " Remove trailing whitespaces before saving
 autocmd BufWritePre *.rb,*.erb,*.js,*.coffee,*.css,*.sass,*.scss,*.rake,*.hamlc,*.cjsx,*.yml,*.md :%s/\s\+$//e | %s/\($\n\s*\)\+\%$//e
 
-"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 "autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
@@ -319,7 +319,7 @@ vnoremap <Space> zf
 
 " Save and restore folding
 "autocmd BufWinLeave *.rb,*.coffee,*.css mkview
-"autocmd BufWinEnter *.rb,*.coffee,*.css silent loadview 
+"autocmd BufWinEnter *.rb,*.coffee,*.css silent loadview
 
 set omnifunc=syntaxcomplete#Complete
 

@@ -64,4 +64,5 @@ alias greplace="git add --all; git ciam; git put -f"
 
 alias bm="~/projects/bookmate"
 alias pub="~/projects/publisher"
+alias rol="~/projects/roleus"
 alias open="xdg-open"

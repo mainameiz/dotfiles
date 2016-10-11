@@ -1,6 +1,6 @@
 source /etc/zsh/zprofile
 
-autoload zkbd
+#autoload zkbd
 [[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
 [[ ! -f ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]] && zkbd
 source  ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
