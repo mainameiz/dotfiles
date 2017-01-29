@@ -1,4 +1,5 @@
 source /etc/zsh/zprofile
+autoload zkbd
 
 #autoload zkbd
 [[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
@@ -82,7 +83,7 @@ PATH=$PATH:$HOME/local/bin
 PATH=$PATH:$HOME/adt/adt-bundle-linux-x86_64-20130917/sdk/platform-tools
 
 ### Added by the Heroku Toolbelt
-export PATH="$PATH:/usr/local/heroku/bin"
+export PATH="$PATH:/usr/local/heroku/bin:$HOME/usr/RubyMine-2016.3/bin"
 
 # Загружаем NVM
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
