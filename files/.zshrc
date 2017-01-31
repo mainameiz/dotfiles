@@ -56,7 +56,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 HISTSIZE=1000
-# Число команд, сохраняемых в HISTFILE 
+# Число команд, сохраняемых в HISTFILE
 SAVEHIST=1000
 
 [[ -d ~/.zsh/functions ]] && source ~/.zsh/functions/*.zsh
@@ -73,17 +73,13 @@ done
 
 eval `dircolors -b ~/.dotfiles/vendor/dircolors-solarized/dircolors.ansi-dark`
 
-# peжuм нaвuгaцuu в cтuлe emacs 
+# peжuм нaвuгaцuu в cтuлe emacs
 bindkey -e
 
 unsetopt correct_all
 
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/local/bin
-PATH=$PATH:$HOME/adt/adt-bundle-linux-x86_64-20130917/sdk/platform-tools
-
 ### Added by the Heroku Toolbelt
-export PATH="$PATH:/usr/local/heroku/bin:$HOME/usr/RubyMine-2016.3/bin"
+export PATH="$PATH:$HOME/usr/RubyMine-2016.3/bin:$HOME/usr/elasticsearch/bin:$HOME/local/bin"
 
 # Загружаем NVM
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
