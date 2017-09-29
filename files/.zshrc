@@ -79,7 +79,7 @@ bindkey -e
 unsetopt correct_all
 
 ### Added by the Heroku Toolbelt
-export PATH="$PATH:$HOME/usr/RubyMine-2016.3/bin:$HOME/usr/elasticsearch/bin:$HOME/local/bin"
+export PATH="$PATH:$HOME/usr/RubyMine-2016.3/bin:$HOME/usr/elasticsearch/bin:$HOME/usr/bin"
 
 # Загружаем NVM
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
@@ -112,3 +112,4 @@ export PROMPT_COMMAND='echo -ne "\033]0;$(basename ${PWD})\007"'
 
 export PATH="$PATH:$HOME/usr/sphinx/bin"
 export DISABLE_SPRING=true
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

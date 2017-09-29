@@ -39,7 +39,7 @@ syntax on
 
 " Solarized colors
 "set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 colorscheme molokai
 
@@ -85,7 +85,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333
 " %l - line counter
 " %L - total lines
 " %P - percentage
-set statusline=%t\ %{fugitive#statusline()}%=%c,%l/%L\ %P
+"set statusline=%t\ %{fugitive#statusline()}%=%c,%l/%L\ %P
 
 " Status line colors
 hi StatusLine ctermbg=White ctermfg=Black
