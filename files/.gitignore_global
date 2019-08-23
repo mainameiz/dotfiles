@@ -8,3 +8,4 @@ custom_plan.rb
 
 .ruby-gemset
 .rake_tasks
+docker-compose.override.yml
