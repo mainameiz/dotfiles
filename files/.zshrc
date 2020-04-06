@@ -49,7 +49,7 @@ ZSH_THEME="dieter"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler pass git-prompt rake-fast zeus heroku)
+plugins=(git bundler pass git-prompt rake-fast zeus heroku docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,13 +79,14 @@ bindkey -e
 unsetopt correct_all
 
 ### Added by the Heroku Toolbelt
-export PATH="$PATH:$HOME/usr/RubyMine-2016.3/bin:$HOME/usr/elasticsearch/bin:$HOME/usr/bin"
+export PATH="$HOME/usr/bin:$PATH"
 
 # Загружаем NVM
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
 # Загружаем RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+rvm use
 
 unset RUBY_HEAP_INIT_SLOTS
 unset RUBY_HEAP_FREE_MIN
@@ -110,6 +111,9 @@ unsetopt listambiguous
 
 export PROMPT_COMMAND='echo -ne "\033]0;$(basename ${PWD})\007"'
 
-export PATH="$PATH:$HOME/usr/sphinx/bin"
 export DISABLE_SPRING=true
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/mainameiz/.sdkman"
+[[ -s "/home/mainameiz/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mainameiz/.sdkman/bin/sdkman-init.sh"
