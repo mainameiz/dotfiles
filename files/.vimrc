@@ -1,38 +1,6 @@
 set nocompatible
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'mileszs/ack.vim'
-Plugin 'wincent/Command-T'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'msanders/snipmate.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-surround'
-Plugin 'oblitum/rainbow'
-Plugin 'tpope/vim-endwise'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'godlygeek/tabular'
-Plugin 'elzr/vim-json'
-Plugin 'mtscout6/vim-cjsx'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'osyo-manga/vim-monster'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
 filetype plugin indent on    " required
 
 syntax on
@@ -46,50 +14,8 @@ colorscheme molokai
 filetype plugin indent on
 set colorcolumn=80
 
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
-
-"nmap <C-S-V> "+p
-"inoremap <C-S-V> <ESC>"+pi
-
-let g:vim_json_syntax_conceal = 0
-
-let g:neocomplete#enable_at_startup = 1
-
-"color codeschool
-set guifont=Monaco\ 11
-"set guifont=Ubuntu\ Mono\ 16
-set guioptions-=T " Removes top toolbar
-set guioptions-=r " Removes right hand scroll bar
-set go-=L " Removes left hand scroll bar
-
 set scrolloff=5
 set noignorecase
-
-"hi Normal ctermbg=none
-"hi Comment ctermbg=none
-"hi LineNr ctermbg=none
-
-"hi IndentGuidesOdd ctermbg=none
-"hi IndentGuidesEven ctermbg=none
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333
-"hi SpecialComment  guifg=#7E8E91               gui=bold
-
-" %t - filename
-" %{fugitive#statusline()} - git branch from fugitive plugin
-" %= - right separator
-" %c - column counter
-" %l - line counter
-" %L - total lines
-" %P - percentage
-"set statusline=%t\ %{fugitive#statusline()}%=%c,%l/%L\ %P
-
-" Status line colors
-hi StatusLine ctermbg=White ctermfg=Black
-highlight LineNr guifg=White
 
 " <leader> key:
 let mapleader = ","
@@ -177,13 +103,6 @@ nnoremap <leader><space> :noh<cr>
 "inoremap <right> <nop>
 
 " Переключение табов по Ctrl+PageDown (следующая) и Ctrl+PageUp (предыдущая)
-if &term =~ "screen"
-  imap [5;5~ <ESC>gti
-  imap [6;5~ <ESC>gTi
-  nmap [5;5~ gt
-  nmap [6;5~ gT
-endif
-
 if &term =~ "xterm"
   imap <A-Down> <ESC>gTi
   imap <A-Up> <ESC>gti
