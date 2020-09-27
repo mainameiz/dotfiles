@@ -12,6 +12,7 @@
 [alias]
   co = checkout
   br = branch
+  brl = branch #-v --sort=committerdate
   ci = commit
   st = status
   last = log -1 HEAD
@@ -23,6 +24,7 @@
   aa = add --all
   ciam = commit --amend --no-edit
   ciame = commit --amend --edit
+  files = diff-tree --no-commit-id --name-only -r
 [color]
   ui = true
 [config]

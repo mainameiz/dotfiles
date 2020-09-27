@@ -49,7 +49,8 @@ ZSH_THEME="dieter"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler pass git-prompt rake-fast zeus heroku docker docker-compose)
+plugins=(git bundler pass git-prompt rake-fast zeus heroku docker docker-compose gradle)
+export UNBUNDLED_COMMANDS=(spring)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,9 +112,15 @@ unsetopt listambiguous
 
 export PROMPT_COMMAND='echo -ne "\033]0;$(basename ${PWD})\007"'
 
-export DISABLE_SPRING=true
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mainameiz/.sdkman"
 [[ -s "/home/mainameiz/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mainameiz/.sdkman/bin/sdkman-init.sh"
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/home/mainameiz/yandex-cloud/path.bash.inc' ]; then source '/home/mainameiz/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/home/mainameiz/yandex-cloud/completion.zsh.inc' ]; then source '/home/mainameiz/yandex-cloud/completion.zsh.inc'; fi
+
