@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 source /etc/zsh/zprofile
 autoload zkbd
 
@@ -49,7 +50,8 @@ ZSH_THEME="dieter"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler pass git-prompt rake-fast zeus heroku docker docker-compose gradle)
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+plugins=(git bundler pass git-prompt rake-fast zeus heroku docker docker-compose gradle ssh-agent)
 export UNBUNDLED_COMMANDS=(spring)
 
 source $ZSH/oh-my-zsh.sh
@@ -104,6 +106,7 @@ export RUBY_GC_MALLOC_LIMIT=100000000
 export RUBY_GC_MALLOC_LIMIT_MAX=1000000000
 
 export GPGKEY=8C3A555D
+export GPG_TTY=$(tty)
 
 zstyle ':completion:*' matcher-list '' 'm:{-_}={_-}'
 
@@ -124,3 +127,8 @@ if [ -f '/home/mainameiz/yandex-cloud/path.bash.inc' ]; then source '/home/maina
 # The next line enables shell command completion for yc.
 if [ -f '/home/mainameiz/yandex-cloud/completion.zsh.inc' ]; then source '/home/mainameiz/yandex-cloud/completion.zsh.inc'; fi
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# zprof

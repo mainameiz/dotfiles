@@ -10,3 +10,4 @@ custom_plan.rb
 .rake_tasks
 docker-compose.override.yml
 .pry_history
+.solargraph.yml

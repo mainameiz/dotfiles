@@ -61,8 +61,13 @@ alias tmux="TERM=xterm-256color tmux attach || tmux new"
 alias flushdb="redis-cli flushdb"
 
 alias greplace="git add --all; git ciam; git put -f"
+alias gd="git diff --ignore-all-space"
+alias gdca="git diff --cached --ignore-all-space"
 
 alias bm="~/projects/bookmate"
 alias pub="~/projects/publisher"
 alias rol="~/projects/roleus"
 alias open="xdg-open"
+
+
+alias git_clear_local_branches="git fetch --prune; git branch -vv | grep ': gone]' | cut -d' ' -f3 | xargs -I{} git branch -D {}"

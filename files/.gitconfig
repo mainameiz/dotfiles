@@ -12,7 +12,7 @@
 [alias]
   co = checkout
   br = branch
-  brl = branch #-v --sort=committerdate
+  brl = branch -v --sort=-committerdate
   ci = commit
   st = status
   last = log -1 HEAD
@@ -20,6 +20,7 @@
   rmc = rm --cached
   rmt = remote
   up = pull --rebase
+  upmaster = fetch origin master:master
   put = push origin HEAD
   aa = add --all
   ciam = commit --amend --no-edit
@@ -32,7 +33,7 @@
 [push]
   default = current
 [commit]
-  # gpgsign = true
+  gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
