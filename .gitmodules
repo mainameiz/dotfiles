@@ -3,7 +3,7 @@
 	url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
 [submodule "vendor/dircolors-solarized"]
 	path = vendor/dircolors-solarized
-	url = git://github.com/seebi/dircolors-solarized.git
+	url = https://github.com/seebi/dircolors-solarized.git
 [submodule "vendor/oh-my-zsh"]
 	path = vendor/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
